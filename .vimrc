@@ -8,6 +8,10 @@ set incsearch
 " set leader key
 let mapleader='-'
 
+" add omni complete functionality
+filetype plugin on
+set omnifunc=syntaxcomplete#Complete
+
 " shortcut to uppercase/lowercase words
 nnoremap <c-u> viwU
 nnoremap <c-l> viwu
@@ -21,5 +25,3 @@ endfunction
 
 " add pre-save cleanup functionality
 autocmd BufWritePre *.c,*.cpp,Makefile :call RemoveWhiteSpaces()
-
-" 

@@ -11,6 +11,7 @@ let mapleader='-'
 " add omni complete functionality
 filetype plugin on
 set omnifunc=syntaxcomplete#Complete
+set completeopt=longest,menuone
 
 " shortcut to uppercase/lowercase words
 nnoremap <c-u> viwU

@@ -1,28 +1,34 @@
-" startup pathogen - used for bundle
+" startup pathogen
 call pathogen#infect()
-
-" set editor options
-set wildmenu
-set incsearch
 
 " set leader key
 let mapleader='-'
 
-" add omni complete functionality
-filetype plugin on
-set omnifunc=syntaxcomplete#Complete
-set completeopt=longest,menuone
+" set color scheme
+colorscheme desert
 
-" shortcut to uppercase/lowercase words
+" set options
+set nowrap
+set wildmenu
+set incsearch
+set noswapfile
+set tabstop=4 softtabstop=4 shiftwidth=4 noexpandtab 
+
+" basic keyboard shortcuts
+noremap <F5> :setlocal spell! spell?<cr>
+
+" shortcut uppercase/lowercase word
 nnoremap <c-u> viwU
 nnoremap <c-l> viwu
 inoremap <c-u> <esc><right>viwUi
 inoremap <c-l> <esc><right>viwui
 
-" function: removes all the trailing empty spaces after last non-space character
-function RemoveWhiteSpaces()
-  %s/ \+$//ge
-endfunction
+" enable omni-complete functionality
+filetype plugin on
+set omnifunc=syntaxcomplete#Complete
+set completeopt=longest,menuone
 
-" add pre-save cleanup functionality
-autocmd BufWritePre *.c,*.cpp,Makefile :call RemoveWhiteSpaces()
+" user functions 
+function TrimLines()
+    :%s/\v +$//ge
+endfunction
